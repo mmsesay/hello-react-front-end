@@ -6,14 +6,12 @@ const Greeting = () => {
   const state = useSelector((state) => state.greetReducer.messages);
   const dispatch = useDispatch();
 
-  const messages = state.map((id, response) => {
-    return <li key={id}>{response.message}</li>;
-  });
+  const messages = state.map((response) => (<li key={response.id}>{response.message}</li>));
 
   const performAction = () => {
     dispatch(getMessagesAction());
 
-    fetch('http://localhost:3000/v1/greeting.json')
+    fetch('http://127.0.0.1:3000/v1/greeting.json')
       .then((response) => response.json())
       .then((data) => dispatch(getMessageSuccessAction(data)))
       .catch((error) => console.log(error));

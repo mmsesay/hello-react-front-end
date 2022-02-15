@@ -1,12 +1,12 @@
-import { createStore, combineReducers } from "redux"
+import { createStore, combineReducers } from 'redux';
 import { greetReducer } from './greet';
 
 const reducers = combineReducers({
-  greetReducer
+  greetReducer,
 });
 
 const store = createStore(
-  reducers
+  reducers,
 );
 
 export default store;
